@@ -1,0 +1,53 @@
+﻿@using BTRS.Models
+@using static BTRS.Models.Passenger;
+@model Passenger
+
+@using(Html.BeginForm("SignUp","Passenger",FormMethod.Post)){
+
+
+	<table>
+
+		<tr>
+			<td>Name</td>
+			<td>
+				@Html.TextBox("Name",null,new{@Type="text"})
+			</td>
+		</tr>
+		<tr>
+			<td>EmailAddress</td>
+			<td>
+				@Html.TextBox("EmailAddress",null,new{@Type="text"})
+			</td>
+		</tr>
+		<tr>
+			<td>UserName</td>
+			<td>
+				@Html.TextBox("UserName",null,new{@Type="text"})
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				@Html.TextBox("Password",null,new{@Type="password"})
+			</td>
+		</tr>
+		<tr>
+			<td>PhoneNumber</td>
+			<td>
+				@Html.TextBox("PhoneNumber",null,new{@Type="text"})
+			</td>
+		</tr>
+		<tr>
+			<td>Gender</td>
+			<td>
+				@Html.DropDownList("Gender",
+                   new SelectList(Enum.GetValues(typeof(gender))),
+                   "Select Gender",
+                    new { @class = "form-control" })
+			</td>
+		</tr>
+	</table>
+
+	@Html.TextBox("SignUp","SignUp",new{@Type="submit"})
+}
+@TempData["Msg"]

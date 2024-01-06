@@ -1,0 +1,32 @@
+﻿@model BTRS.Models.Login;
+@using static BTRS.Models.Passenger;
+
+@using(Html.BeginForm("Login","Passenger",FormMethod.Post)){
+	<table>
+
+		<tr>
+			<td>Username</td>
+			<td>
+				@Html.TextBox("Username",null,new{@Type="text"})
+			</td>
+			<td>
+				@Html.ValidationMessageFor(m => m.Username)
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				@Html.TextBox("Password",null,new{@Type="password"})
+			</td>
+			<td>
+				@Html.ValidationMessageFor(m => m.Password)
+			</td>
+		</tr>
+
+
+	</table>
+	<input type="submit" value="Login" class="btn btn-primary" />
+}
+@Html.ActionLink("SignUp", "SignUp","Passenger", new { onclick = "SignUp;"},new { @class = "btn btn-primary" })
+
+@TempData["Msg"]
